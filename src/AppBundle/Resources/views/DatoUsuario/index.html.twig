@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>DatoUsuario list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Pnombre</th>
+                <th>Snombre</th>
+                <th>Papellido</th>
+                <th>Sapellido</th>
+                <th>Activo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('datousuario_show', { 'id': entity.usuario }) }}">{{ entity.pNombre }}</a></td>
+                <td>{{ entity.sNombre }}</td>
+                <td>{{ entity.pApellido }}</td>
+                <td>{{ entity.sApellido }}</td>
+                <td>{{ entity.activo }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('datousuario_show', { 'id': entity.usuario }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('datousuario_edit', { 'id': entity.usuario }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('datousuario_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

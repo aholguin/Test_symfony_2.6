@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>DatoUsuario</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Pnombre</th>
+                <td>{{ entity.pNombre }}</td>
+            </tr>
+            <tr>
+                <th>Snombre</th>
+                <td>{{ entity.sNombre }}</td>
+            </tr>
+            <tr>
+                <th>Papellido</th>
+                <td>{{ entity.pApellido }}</td>
+            </tr>
+            <tr>
+                <th>Sapellido</th>
+                <td>{{ entity.sApellido }}</td>
+            </tr>
+            <tr>
+                <th>Activo</th>
+                <td>{{ entity.activo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('datousuario') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('datousuario_edit', { 'id': entity.usuario }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -7,6 +7,163 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Modulo
  *
+<<<<<<< OURS
+ * @ORM\Table(name="modulo", indexes={@ORM\Index(name="fk_modulo_modulo1_idx", columns={"modulo_id"})})
+ * @ORM\Entity
+ */
+class Modulo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=45, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=200, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ruta", type="string", length=300, nullable=true)
+     */
+    private $ruta;
+
+    /**
+    * @var integer
+    *
+    * @ORM\Column(name="modulo_id", type="integer", nullable=true)
+    */
+    private $modulo_padre;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="activo", type="integer", nullable=true)
+     */
+    private $activo = '1';
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="ModuloHasRole", mappedBy="Modulo")
+     */
+    protected $ModuloHasRole;
+    
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     * @return Modulo
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string 
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     * @return Modulo
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string 
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set ruta
+     *
+     * @param string $ruta
+     * @return Modulo
+     */
+    public function setRuta($ruta)
+    {
+        $this->ruta = $ruta;
+
+        return $this;
+    }
+
+    /**
+     * Get ruta
+     *
+     * @return string 
+     */
+    public function getRuta()
+    {
+        return $this->ruta;
+    }
+
+    /**
+     * Set activo
+     *
+     * @param integer $activo
+     * @return Modulo
+     */
+    public function setActivo($activo)
+    {
+        $this->activo = $activo;
+
+        return $this;
+    }
+
+    /**
+     * Get activo
+     *
+     * @return integer 
+     */
+    public function getActivo()
+    {
+        return $this->activo;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+=======
  * @ORM\Table(name="modulo", indexes={@ORM\Index(name="fk_modulo_role1_idx", columns={"role_id"}), @ORM\Index(name="fk_modulo_modulo1_idx", columns={"modulo_id"})})
  * @ORM\Entity
  */
@@ -194,6 +351,7 @@ class Modulo
     public function getRole()
     {
         return $this->role;
+>>>>>>> THEIRS
     }
 
     /**
